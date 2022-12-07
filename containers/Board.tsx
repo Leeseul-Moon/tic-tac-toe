@@ -25,7 +25,8 @@ function calculateWinner(squares: Player[]) {
 function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [currentPlayer, setCurrentPlayer] = useState<"x" | "o">(
-    Math.round(Math.random() * 1) === 1 ? "x" : "o"
+    // Math.round(Math.random() * 1) === 1 ? "x" : "o"
+    "x"
   );
   const [winner, setWinner] = useState<Player>(null);
 
@@ -59,7 +60,7 @@ function Board() {
 
   return (
     <div>
-      {!winner && <p>Hey {currentPlayer}, it is your turn</p>}
+      {!winner && <p data-reactroot>Hey {currentPlayer}, it is your turn</p>}
       {winner && winner !== "BOTH" && <p>Congratulations {winner}</p>}
       {winner && winner === "BOTH" && <p>Congratulations you re both winners</p>}
 
